@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 - Ödev 1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <style>
+  
+  .solid{
+    border-top: 3px solid orange; 
+    width: 200px; 
+    position: relative;
+  }
+  #headerDiv{   /*Header (en üst) bölümü için CSS özellikleri */ 
+    background-image: url("pics/head6-2.jpg");
+    background-repeat: no-repeat;
+    background-position: 30%;
+  }
+  #ana-sayfa-baslik{
+    position: relative;
+    right:380px ; 
+    bottom: 20px;
+  }
+  .headerLinks{
+    color: white;
+  }
+  .headerLinks:hover{
+    color:orange ;
+  }
+  .kartRow{
+    margin: 20px 0px 20px 0px;
+  }
+  
+  .nav-item{  /*Na*/ 
+    margin: 10px;
+  }
+  .ilkPanel{
+    color:rgb(117, 109, 109);
+    font-weight: 500;
+  }
+  .ilkPanel:hover{
+    color:orange;
+  }
+  
+  .form-check-label{
+    font-size: large;
+    color: black;
+  }
+  .form-check-input{
+    left:180px;
+    width:20px;
+    height: 20px;  
+  }
+
+  .logoContainer{ /*Üstte bulunan Ana Sayfa logosu için konteyner */ 
+    position: relative;
+    left: 8%;
+  }
+  .footerYazıKont{  /*En altta bulunan footer bölümünün yazıları için CSS */ 
+    width: 150px;
+    position:relative;
+    left:15%;
+    text-align: left;
+  }
+  .footerGriCizgi{  /*En altta bulunan footer bölümündeki sosyal medya ikonlarını tutan gri konteyner */ 
+    background-color:rgb(223, 223, 233); 
+    margin-bottom: 5%; 
+    height: 80px;
+  }
+  .footerLogolari{  /*En alttaki footer bölümünün logoları için CSS */ 
+    margin:10px 10px 10px 10px ;
+    max-width: 50px;
+    max-height: 50px;
+    position: relative;
+    right: 6%;
+  }
+  #flexCheckText1{
+    color:blue;
+  }
+  
+
+  </style>
+
+</head>
+<body>
+
+  <!-- En üst bölüm - header bölümü + navbar  -->
+  <div id="headerDiv" class="jumbotron text-center" >
+    <!-- 
+      Sitenin en üst bölümüdür.
+      1 navbar bölümü ile altında kalan Yazı/Başlık kısmından oluşur 
+    -->
+    <nav class="navbar  navbar-expand-sm " style="bottom: 70px" >  <!--navbarın üstte görünmesi için 70px yukarı kaydırdık-->
+      <!-- Navbar Ana Sayfa Logosu  -->
+      <div  class="container-sm logoContainer" style="width:auto">
+        <a class="navbar-brand" href="#">
+          <img src="pics/logo/mainLogo.png"  alt="mainLogo" width="110" height="110" style="background-color: transparent;">
+        </a>
+      </div>
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" style="padding-left:380px">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link headerLinks" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link headerLinks" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link headerLinks" href="#">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link headerLinks" href="#">Blog</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link headerLinks" href="#">Contact us</a>
+          </li> 
+          <li class="nav-item" style="color: aliceblue; text-align: right;" >
+            <a href="">
+              <img src="pics/logo/search.png" alt="" style="width: 35px ; height: 35px;">
+            </a> 
+          </li> 
+          <li class="nav-item" style="color: aliceblue;">
+            <a href="">
+              <img src="pics/logo/shop.png" alt="" style="width: 35px ; height: 35px;">
+            </a>
+          </li> 
+        </ul>
+      </div>
+
+    </nav>
+
+    <!--Sayfanın ana başlığı için header -->
+    <div id="ana-sayfa-baslik" class="container-sm">
+      <p class="text-white">-- Save This Weekend</p>
+      <h1 class="text-white font-weight-bold">Our Products</h1>
+    </div>
+
+    <div id="headerYanYazi" class="container-r float-right" >
+      <p class="text-white">Home/Our Product Sidebar Right</p>
+    </div>
+    
+  </div>
+
+  <!-- 2. bölüm -->
+  <section>
+    <div class="container" >
+      <div class="row">      
+        <!-- col8 sağ tarafta kalan büyük panel(kartların olduğu kısım) -->
+        <div class="col-sm-8" >
+          
+          <!--Sayfanın üst kısmında kalan resim ve ortasında link ( Shop Now )--> 
+          <div class="container" >
+            <img class="img-fluid" src="pics/sagK1.jpg"></img>
+            <a href=""><h6 class="font-weight-bold " style="color:orange ; position:relative; bottom: 60px; left:100px">Shop Now</h6> </a>
+          </div>
+
+          <!--Kartların üstünde solda yazı ve sağda açılır buton -->
+          <div class="container " style="margin: 20px 0px 0px 30px">
+            <div class="row">  
+                <h6>Our Latest Products</h6>
+                
+                <div class="dropdown" style="left:430px">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Featured</button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Link 1</a>
+                      <a class="dropdown-item" href="#">Link 2</a>
+                      <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </div>
+            </div>
+          </div>   
+
+          <!-- kartların olduğu container -->
+          <div class="container" style="padding:10px;">
+            <div class="row kartRow" >
+              <div class="col">
+                <a href="detay-sayfa.html"><img class="img-fluid"src="pics/grid1.jpg" alt="" width=200></a>
+              </div>
+              <div class="col">
+                <a href="detay-sayfa.html"><img class="img-fluid" src="pics/grid2.jpg" alt="" width=200></a>              
+              </div>
+              <div class="col">
+                <a href="detay-sayfa.html"><img class="img-fluid" src="pics/grid3.jpg" alt="" width=200></a>              
+              </div>          
+            </div>
+          
+            <div class="row kartRow">
+            <div class="col">
+              <a href="detay-sayfa.html"><img class="img-fluid" src="pics/grid4.jpg" alt="" width=200></a>            
+            </div>
+            <div class="col">
+              <a href="detay-sayfa.html"><img class="img-fluid" src="pics/grid5.jpg" alt="" width=200></a>            
+            </div>
+            <div class="col">
+              <a href="detay-sayfa.html"><img class="img-fluid" src="pics/grid6.jpg" alt="" width=200></a>            
+            </div>          
+            </div>
+
+            <div class="row kartRow">
+            <div class="col">
+              <a href="detay-sayfa.html"><img class="img-fluid" src="pics/grid7.jpg" alt="" width=200></a>            
+            </div>
+            <div class="col">
+              <a href="detay-sayfa.html"><img class="img-fluid" src="pics/grid2.jpg" alt="" width=200></a>            
+            </div>
+            <div class="col">
+              <a href="detay-sayfa.html"><img class="img-fluid" src="pics/grid9.jpg" alt="" width=200></a>            
+            </div>          
+            </div>
+        
+          </div>
+          
+          <!-- en altta kalan nav - sayfa geçiş yeri -->
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">< </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">...</a></li>
+              <li class="page-item"><a class="page-link" href="#">30</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">></a>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+
+        <!-- col3 sol tarafta kalan küçük panel-->
+        <div class="col-3 "  >
+
+            <!-- İlk PANEL -->
+            <div class="jumbotron lead"  >
+              <h6 class="font-weight-bold">All Category</h6>
+              <div> <hr></div>
+              <ul class="nav nav-tabs flex-column">
+                <li class="nav-pills">
+                  <a class="nav-link ilkPanel" href="#">All Items</a>
+                </li>
+                <li class="nav-pills">
+                  <a class="nav-link ilkPanel" href="#">Sofas</a>
+                </li>
+                <li class="nav-pills">
+                  <a class="nav-link ilkPanel" href="#">Tables</a>
+                </li>
+                <li class="nav-pills">
+                  <a class="nav-link ilkPanel" href="#">Chairs</a>
+                </li>
+                <li class="nav-pills">
+                  <a class="nav-link ilkPanel" href="#">Beds</a>
+                </li>
+                <li class="nav-pills">
+                  <a class="nav-link ilkPanel" href="#">Mattresses</a>
+                </li>
+                <li class="nav-pills">
+                  <a class="nav-link ilkPanel" href="#">Dining Tables</a>
+                </li>
+                <li class="nav-pills">
+                  <a class="nav-link ilkPanel" href="#">Dining Chairs</a>
+                </li>
+            </div>
+            <!-- İkinci PANEL -->
+            <div class="jumbotron">
+              <h6 class="font-weight-bold">Brands</h6>
+              <div> <hr></div>
+              <!-- Checkbox kısmı-->
+              <ul class="nav nav-tabs flex-column ">
+                <li class="nav-pills ikinciPanel">
+                  <div class="form-check" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Roche Bobais 
+                    </label>
+                    <input class="form-check-input" type="checkbox" value="" >
+                  </div>
+                </li>
+                <li class="nav-pills ikinciPanel">
+                  <div class="form-check">
+                    <label class="form-check-label"  for="flexCheckChecked">
+                      Edra 
+                    </label>
+                    <input class="form-check-input" type="checkbox" value=""  >
+                  </div>
+                </li>
+                <li class="nav-pills ikinciPanel ">
+                  <div class="form-check ">
+                    <label class="form-check-label "  for="flexCheckChecked">
+                      Paliform 
+                    </label>
+                    <input class="form-check-input" type="checkbox" value=""  >
+                  </div>
+                </li>
+                <li class="nav-pills ikinciPanel">
+                  <div class="form-check">
+                    <label class="form-check-label " for="flexCheckChecked">
+                      Christopher Guy 
+                    </label>
+                    <input class="form-check-input" type="checkbox" value="" >
+                  </div>
+                </li>
+                <li class="nav-pills ikinciPanel">
+                  <div class="form-check">
+                    <label class="form-check-label "for="flexCheckChecked">
+                      Kartell 
+                    </label>
+                    <input class="form-check-input" type="checkbox" value=""  >
+                  </div>
+                </li>
+                <li class="nav-pills ikinciPanel">
+                  <div class="form-check">
+                    <label class="form-check-label "  for="flexCheckChecked">
+                      Baker 
+                    </label>
+                    <input class="form-check-input" type="checkbox" value=""  >
+                  </div>
+                </li>
+                <li class="nav-pills ikinciPanel">
+                  <div class="form-check">
+                    <label class="form-check-label "  for="flexCheckChecked">
+                      Boca do Labo 
+                    </label>
+                    <input class="form-check-input" type="checkbox" value="" >
+                  </div>
+                </li>
+                <li class="nav-pills ikinciPanel">
+                  <div class="form-check">
+                    <label class="form-check-label"  for="flexCheckChecked">
+                      Joybird 
+                    </label>
+                    <input class="form-check-input" type="checkbox" value="" >
+                  </div>
+                </li>
+            </div>
+            <!-- Üçüncü PANEL Price-->
+            <div class="jumbotron">
+              <h6 class="font-weight-bold">Price</h6>
+              <div> <hr></div>
+              <!--price slider bar-->
+              <label for="customRange1" class="form-label"></label>
+              <input type="range" class="" id="customRange1">
+            </div>
+            
+            <!--son bölüm -->
+            <div class="jumbotron-fluid">
+                <img src="pics/solK1.jpg" style="width:250px" alt="">
+            </div>
+          </div>
+
+      </div>
+    </div>
+    
+  </section>
+
+  <!-- 3. bölüm -->
+  <section>
+    <!--Aşağıda kalan resim-->
+    <div class="container" style="position: relative; right:10%"  >
+      <img src="pics/anaSayfaAlt.png" class="rounded" alt="" >
+    </div>
+  </section>
+
+  <!-- 4.bölüm -->
+  <footer>
+    <!-- üstteki yazı bölümü-->
+    <div class="jumbotron text-center" style="background-color: white;">
+      <div class="row">
+
+        <!--Grid column 1 -->
+        <div class="col">
+          <!--başlık-->
+          <div class="footerYazıKont">
+            <h6>About Store</h6>
+            <!--divider - sarı çizgi -->
+            <div class="mb-4"><hr class="solid"></div>
+          </div>
+          <!--içerik-->
+          <!-- Düzgün ve hizalı olması için bir div içine alalım -->
+          <div class="footerYazıKont">  <!--sola eşit olması için bir kutu içerisine listeyi koydum-->
+            <ul class="list-unstyled">  <!--sitilsiz -->
+              <li>
+                <a href="odevGir1.html" class="text-black-50"><p class="text-left">Home</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50"><p class="text-left">Shop</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50"><p class="text-left">Product</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50"><p class="text-left">About Us</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50"><p class="text-left">Festival Offer</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50"><p class="text-left">Contact Us </p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50"><p class="text-left">Login</p></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--Grid column 1 -->
+
+        <!--Grid column 2 -->
+        <div class="col">
+          <!--başlık-->
+          <div class="footerYazıKont">
+            <h6>Brands</h6>
+            <!--divider - sarı çizgi -->
+            <div class="mb-4"><hr class="solid"></div>
+          </div>
+          
+          <!--içerik-->
+          <!-- Düzgün ve hizalı olması için bir div içine alalım -->
+          <div class=" footerYazıKont">
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Adsum</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Albam</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">and wander</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Arpenteur</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Eastlogue</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Gitman Vintage</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Lady White Co.</p></a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        <!--Grid column 2 -->
+
+        <!--Grid column 3 -->
+        <div class="col">
+          <!--başlık-->
+          <div class="footerYazıKont">
+            <h6>Categories</h6>
+            <!--divider - sarı çizgi -->
+            <div class="mb-4"><hr class="solid"></div>
+          </div>
+          
+          <!--içerik-->
+          <!-- Düzgün ve hizalı olması için bir div içine alalım -->
+          <div class="footerYazıKont">
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Single Sofa</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Sleeper Sofas</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Accent Chairs</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Chairs-and-a-half</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Recliners</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Swivels & Gliders</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Loveseats</p></a>
+              </li>
+            </ul>
+
+          </div>
+        
+        </div>
+        <!--Grid column 3 -->
+
+        <!--Grid column 4 -->
+        <div class="col">
+          <!--başlık-->
+          <div class="footerYazıKont">
+            <h6>Support</h6>
+            <!--divider - sarı çizgi -->
+            <div class="mb-4"><hr class="solid"></div>
+          </div>
+          
+          <!--içerik-->
+          <!-- Düzgün ve hizalı olması için bir div içine alalım -->
+          <div class="footerYazıKont">
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">GDPR</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Cookie Policy</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Terms</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Abuse Policy</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Privacy Policy</p></a>
+              </li>
+              <li>
+                <a href="#!" class="text-black-50" ><p class="text-left">Contact Us</p></a>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+        <!--Grid column 4 -->
+      </div>
+    </div>
+
+    <!--alttaki sosyal medya ve logo bölümü-->
+    <div class="container-fluid footerGriCizgi">
+      <div class="row justify-content-end " style="position: relative;">
+        <img src="pics/logo/furlogo.png" class=" footerLogolari" style="margin-right: 70%;" alt="mainLogo" >
+        <img src="pics/logo/face.png" class="img-fluid footerLogolari" alt="logo" >
+        <img src="pics/logo/twitter.png" class="img-fluid footerLogolari" alt="logo" > 
+        <img src="pics/logo/linkedin.png" class="img-fluid footerLogolari" alt="logo" >
+      </div>
+      
+    </div>
+
+  </footer>
+
+</body>
+
+</html>
+
+
